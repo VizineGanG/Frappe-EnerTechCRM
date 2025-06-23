@@ -1,0 +1,221 @@
+2025-06-17 14:53:00,556 DEBUG cd /home/frappe/frappe-bench && python3 -m venv env
+2025-06-17 14:53:04,190 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  --upgrade pip
+2025-06-17 14:53:06,055 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  wheel
+2025-06-17 14:53:07,043 LOG Getting frappe
+2025-06-17 14:53:07,043 DEBUG cd /home/frappe/frappe-bench/apps && git clone https://github.com/frappe/frappe --branch v15.70.0 --depth 1 --origin upstream
+2025-06-17 14:53:10,817 LOG Installing frappe
+2025-06-17 14:53:10,819 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  --upgrade -e /home/frappe/frappe-bench/apps/frappe 
+2025-06-17 14:53:48,228 DEBUG cd /home/frappe/frappe-bench/apps/frappe && yarn install --check-files --verbose
+2025-06-17 14:54:06,367 DEBUG cd /home/frappe/frappe-bench && bench build
+2025-06-17 14:54:06,476 INFO /usr/local/bin/bench build
+2025-06-17 14:54:22,182 INFO Bench /home/frappe/frappe-bench initialized
+2025-06-17 14:54:22,398 INFO /usr/local/bin/bench get-app --branch=v15.65.2 --resolve-deps erpnext https://github.com/frappe/erpnext
+2025-06-17 14:54:22,631 LOG Getting erpnext
+2025-06-17 14:54:22,631 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext --branch v15.65.2 --depth 1 --origin upstream
+2025-06-17 14:54:26,131 LOG Installing erpnext
+2025-06-17 14:54:26,132 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/frappe/frappe-bench/apps/erpnext 
+2025-06-17 14:54:36,362 DEBUG cd /home/frappe/frappe-bench/apps/erpnext && yarn install --check-files
+2025-06-17 14:54:36,804 DEBUG bench build --app erpnext
+2025-06-17 14:54:36,913 INFO /usr/local/bin/bench build --app erpnext
+2025-06-18 05:09:24,872 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 05:09:24,872 INFO /usr/local/bin/bench schedule
+2025-06-18 05:09:24,872 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 05:09:24,877 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 05:09:25,589 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 05:09:26,143 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 05:09:26,628 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 05:09:27,099 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 05:09:27,569 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 05:09:31,812 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 05:09:31,812 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 05:09:32,825 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 05:15:45,732 INFO /usr/local/bin/bench console
+2025-06-18 05:16:11,110 INFO /usr/local/bin/bench migrate
+2025-06-18 05:16:17,173 INFO /usr/local/bin/bench update --build
+2025-06-18 05:16:17,188 WARNING /usr/local/bin/bench update --build executed with exit code 1
+2025-06-18 05:16:17,445 INFO /usr/local/bin/bench clear-cache
+2025-06-18 05:16:27,811 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 05:16:28,035 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 05:16:28,038 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 05:16:28,530 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 05:16:29,127 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 05:16:29,651 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 05:16:30,196 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 05:16:30,739 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 05:16:32,548 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 05:16:37,118 INFO /usr/local/bin/bench schedule
+2025-06-18 05:24:20,913 INFO /usr/local/bin/bench remove-from-installed-apps erpnext --site site1.localhost
+2025-06-18 05:24:54,175 INFO /usr/local/bin/bench uninstall-app erpnext
+2025-06-18 05:25:30,378 INFO /usr/local/bin/bench setup requirements
+2025-06-18 05:25:30,386 DEBUG /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade pip
+2025-06-18 05:25:31,004 WARNING /usr/local/bin/bench setup requirements executed with exit code 1
+2025-06-18 05:25:40,031 INFO /usr/local/bin/bench build
+2025-06-18 05:25:40,795 INFO /usr/local/bin/bench migrate
+2025-06-18 05:28:06,085 INFO /usr/local/bin/bench --site site1.localhost get-config installed_apps
+2025-06-18 05:28:06,432 INFO /usr/local/bin/bench restartbench --site site1.localhost set-config installed_apps
+2025-06-18 05:28:18,276 INFO /usr/local/bin/bench --site site1.localhost console
+2025-06-18 05:28:32,739 INFO /usr/local/bin/bench build --app frappe
+2025-06-18 05:28:38,719 INFO /usr/local/bin/bench --site site1.localhost migrate
+2025-06-18 05:28:50,439 INFO /usr/local/bin/bench --site site1.localhost list-apps
+2025-06-18 05:30:15,933 INFO /usr/local/bin/bench drop-site site1.localhost --force
+2025-06-18 05:30:44,337 INFO /usr/local/bin/bench new-site site1.localhost --db-root-password 123 --admin-password admin
+2025-06-18 05:30:53,927 INFO /usr/local/bin/bench new-app custom_app
+2025-06-18 05:30:53,937 LOG creating new app custom_app
+2025-06-18 05:32:19,580 LOG Installing custom_app
+2025-06-18 05:32:19,580 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/frappe/frappe-bench/apps/custom_app 
+2025-06-18 05:32:21,092 DEBUG bench build --app custom_app
+2025-06-18 05:32:21,181 INFO /usr/local/bin/bench build --app custom_app
+2025-06-18 05:32:36,176 INFO /usr/local/bin/bench --site site1.localhost install-app frappe
+2025-06-18 05:32:36,703 INFO /usr/local/bin/bench --site site1.localhost install-app custom_app
+2025-06-18 05:32:44,791 INFO /usr/local/bin/bench build
+2025-06-18 05:32:56,519 INFO /usr/local/bin/bench start
+2025-06-18 05:33:00,857 INFO /usr/local/bin/bench schedule
+2025-06-18 05:32:59,443 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:05,114 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:06,382 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:08,441 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:12,094 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:18,977 INFO /usr/local/bin/bench schedule
+2025-06-18 05:33:32,250 INFO /usr/local/bin/bench schedule
+2025-06-18 05:34:18,374 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 05:34:18,433 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 05:34:18,515 INFO /usr/local/bin/bench schedule
+2025-06-18 05:34:18,529 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 05:34:19,157 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 05:34:19,475 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 05:34:19,634 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 05:34:20,098 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 05:34:20,571 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 05:34:21,019 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 05:35:03,402 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 05:35:03,418 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 05:35:03,491 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 05:35:03,542 INFO /usr/local/bin/bench schedule
+2025-06-18 05:35:04,032 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 05:35:04,402 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 05:35:04,503 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 05:35:04,998 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 05:35:05,528 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 05:35:06,005 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 05:42:05,235 INFO /usr/local/bin/bench --site frontend uninstall-app erpnext
+2025-06-18 05:44:14,931 INFO /usr/local/bin/bench --site frontend remove-from-installed-apps erpnext
+2025-06-18 05:44:24,732 INFO /usr/local/bin/bench --site frontend uninstall-app erpnext
+2025-06-18 05:56:23,535 INFO /usr/local/bin/bench new-app enertech_crm
+2025-06-18 05:56:23,544 LOG creating new app enertech_crm
+2025-06-18 05:58:02,245 LOG Installing enertech_crm
+2025-06-18 05:58:02,246 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/frappe/frappe-bench/apps/enertech_crm 
+2025-06-18 05:58:03,912 DEBUG bench build --app enertech_crm
+2025-06-18 05:58:03,999 INFO /usr/local/bin/bench build --app enertech_crm
+2025-06-18 05:58:23,242 INFO /usr/local/bin/bench new-doctype enertech_crm Customer --fields 
+[
+    {'fieldname': 'customer_name', 'label': 'Customer Name', 'fieldtype': 'Data'},
+    {'fieldname': 'contact_number', 'label': 'Contact Number', 'fieldtype': 'Data'},
+    {'fieldname': 'email', 'label': 'Email', 'fieldtype': 'Data'},
+    {'fieldname': 'address', 'label': 'Address', 'fieldtype': 'Small Text'},
+    {'fieldname': 'inverter_type', 'label': 'Inverter Type', 'fieldtype': 'Select', 'options': 'On-Grid\nOff-Grid\nHybrid'},
+    {'fieldname': 'capacity_required', 'label': 'Capacity Required (kVA)', 'fieldtype': 'Float'}
+]
+EOF
+2025-06-18 05:59:05,556 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:06,297 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:07,177 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:08,442 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:10,526 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:16,863 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:23,764 INFO /usr/local/bin/bench schedule
+2025-06-18 05:59:37,053 INFO /usr/local/bin/bench schedule
+2025-06-18 06:00:05,870 INFO /usr/local/bin/bench schedule
+2025-06-18 06:01:03,051 INFO /usr/local/bin/bench schedule
+2025-06-18 06:02:09,057 INFO /usr/local/bin/bench schedule
+2025-06-18 06:03:14,954 INFO /usr/local/bin/bench schedule
+2025-06-18 06:04:20,847 INFO /usr/local/bin/bench schedule
+2025-06-18 06:05:26,747 INFO /usr/local/bin/bench schedule
+2025-06-18 06:06:32,659 INFO /usr/local/bin/bench schedule
+2025-06-18 06:07:38,605 INFO /usr/local/bin/bench schedule
+2025-06-18 06:08:44,507 INFO /usr/local/bin/bench schedule
+2025-06-18 06:09:50,360 INFO /usr/local/bin/bench schedule
+2025-06-18 06:09:59,528 INFO /usr/local/bin/bench new-module EnerTech CRM --app enertech_crm
+2025-06-18 06:10:04,757 INFO /usr/local/bin/bench new-module EnerTech CRM --app enertech_crm
+2025-06-18 06:10:47,331 INFO /usr/local/bin/bench new-module EnerTech CRM --app enertech_crm
+2025-06-18 06:10:56,257 INFO /usr/local/bin/bench schedule
+2025-06-18 06:12:02,153 INFO /usr/local/bin/bench schedule
+2025-06-18 06:13:08,094 INFO /usr/local/bin/bench schedule
+2025-06-18 06:14:14,002 INFO /usr/local/bin/bench schedule
+2025-06-18 06:15:19,890 INFO /usr/local/bin/bench schedule
+2025-06-18 06:16:25,802 INFO /usr/local/bin/bench schedule
+2025-06-18 06:17:26,870 INFO /usr/local/bin/bench schedule
+2025-06-18 06:18:29,980 INFO /usr/local/bin/bench schedule
+2025-06-18 06:19:35,105 INFO /usr/local/bin/bench schedule
+2025-06-18 06:20:36,613 INFO /usr/local/bin/bench schedule
+2025-06-18 06:21:42,416 INFO /usr/local/bin/bench schedule
+2025-06-18 06:22:25,310 INFO /usr/local/bin/bench schedule
+2025-06-18 06:22:25,310 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 06:22:25,310 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 06:22:30,107 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 06:22:30,179 INFO /usr/local/bin/bench schedule
+2025-06-18 06:22:30,182 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 06:22:33,642 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 06:22:34,258 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 06:22:34,846 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 06:22:35,288 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 06:22:35,683 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 06:22:36,078 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 06:22:38,304 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 06:26:37,860 INFO /usr/local/bin/bench --site frontend install-app enertech_crm
+2025-06-18 06:27:21,908 INFO /usr/local/bin/bench --site frontend list-apps
+2025-06-18 06:33:38,948 INFO /usr/local/bin/bench --site frontend reinstall --yes
+2025-06-18 06:33:46,576 INFO /usr/local/bin/bench --site frontend migrate
+2025-06-18 06:33:54,335 INFO /usr/local/bin/bench clear-cache
+2025-06-18 06:35:53,621 INFO /usr/local/bin/bench clear-website-cache# Find all sites
+2025-06-18 06:36:21,768 INFO /usr/local/bin/bench --site frontend uninstall-app erpnext --yes
+2025-06-18 06:36:22,045 INFO /usr/local/bin/bench --site frontend install-app enertech_crm --force
+2025-06-18 06:36:22,598 INFO /usr/local/bin/bench build --force
+2025-06-18 06:36:22,853 INFO /usr/local/bin/bench clear-cache
+2025-06-18 06:36:27,964 INFO /usr/local/bin/bench restart# Should only show frappe and enertech_crm
+2025-06-18 06:36:28,160 INFO /usr/local/bin/bench --site frontend list-apps
+2025-06-18 06:36:30,087 INFO /usr/local/bin/bench --site frontend migrate
+2025-06-18 06:36:43,782 INFO /usr/local/bin/bench drop-site frontend --force --root-password 123
+2025-06-18 06:36:44,046 INFO /usr/local/bin/bench new-site frontend --force --db-root-password 123
+2025-06-18 06:36:44,318 INFO /usr/local/bin/bench --site frontend install-app enertech_crm
+2025-06-18 06:36:44,573 INFO /usr/local/bin/bench --site frontend migrate
+2025-06-18 06:42:37,487 INFO /usr/local/bin/bench restartcd
+2025-06-18 06:43:55,470 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 06:43:55,544 INFO /usr/local/bin/bench schedule
+2025-06-18 06:43:55,633 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 06:43:55,712 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 06:43:56,209 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 06:43:56,573 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 06:43:56,643 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 06:43:57,042 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 06:43:57,461 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 06:43:57,842 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-18 08:56:29,811 INFO /usr/local/bin/bench --site frontend console
+2025-06-18 08:57:18,074 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-18 08:57:18,086 INFO /usr/local/bin/bench schedule
+2025-06-18 08:57:16,041 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-18 08:57:16,104 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-18 08:57:21,405 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-18 08:57:21,840 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-18 08:57:21,873 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-18 08:57:22,302 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-18 08:57:22,738 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-18 08:57:23,186 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-23 06:02:13,232 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-23 06:02:13,232 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-23 06:02:13,233 INFO /usr/local/bin/bench schedule
+2025-06-23 06:02:32,885 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-23 06:02:33,497 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-23 06:02:34,033 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2025-06-23 06:02:34,085 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-23 06:02:34,626 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-23 06:02:35,157 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-23 06:02:35,733 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2025-06-23 07:17:11,212 INFO /usr/local/bin/bench worker --queue short,default
+2025-06-23 07:17:11,212 INFO /usr/local/bin/bench schedule
+2025-06-23 07:17:11,287 INFO /usr/local/bin/bench worker --queue long,default,short
+2025-06-23 07:17:11,356 INFO /usr/local/bin/bench set-config -g db_host db
+2025-06-23 07:17:12,169 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2025-06-23 07:17:12,692 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2025-06-23 07:17:13,226 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2025-06-23 07:17:13,753 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2025-06-23 07:17:14,413 INFO /usr/local/bin/bench set-config -gp socketio_port 9000

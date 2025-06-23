@@ -1,0 +1,4 @@
+"Report Name","Ref DocType","Is Standard","Report Type","Reference Report","Module","Letter Head","Add Total Row","Disabled","Prepared Report","Timeout (In Seconds)","Query","Script","Javascript","JSON","ID (Filters)","Default (Filters)","Fieldname (Filters)","Fieldtype (Filters)","Label (Filters)","Mandatory (Filters)","Options (Filters)","Wildcard Filter (Filters)","ID (Columns)","Fieldname (Columns)","Fieldtype (Columns)","Label (Columns)","Options (Columns)","Width (Columns)","ID (Roles)","Role (Roles)"
+"Lead Details","Lead","Yes","Script Report","","CRM","",0,0,0,0,"","","","","","","","","","","","","","","","","","","necp8jgtv8","Sales User"
+"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","uf7ckqcfta","Sales Manager"
+"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","tf2mosnrrd","System Manager"

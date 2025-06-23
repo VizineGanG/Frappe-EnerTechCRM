@@ -1,0 +1,8 @@
+{
+  "db_name": "frontend",
+  "db_password": "admind",
+  "installed_apps": [
+    "frappe",
+    "enertech_crm"
+  ]
+}

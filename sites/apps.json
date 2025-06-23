@@ -1,0 +1,21 @@
+{
+    "frappe": {
+        "resolution": {
+            "commit_hash": null,
+            "branch": null
+        },
+        "required": [],
+        "idx": 1,
+        "version": "15.70.0"
+    },
+    "enertech_crm": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "47c513983b06fd1f09946f869822d43fd805d879",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 2,
+        "version": "0.0.1"
+    }
+}

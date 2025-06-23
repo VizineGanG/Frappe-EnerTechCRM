@@ -1,0 +1,2503 @@
+2025-06-18 05:14:19,764 WARNING database DDL Query made to DB:
+create table `tabAsset Capitalization` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`title` varchar(140),
+`naming_series` varchar(140),
+`capitalization_method` varchar(140),
+`target_item_code` varchar(140),
+`target_item_name` varchar(140),
+`target_asset` varchar(140),
+`target_asset_name` varchar(140),
+`target_qty` decimal(21,9) not null default 1.0,
+`target_asset_location` varchar(140),
+`company` varchar(140),
+`posting_date` date,
+`posting_time` time(6),
+`set_posting_time` int(1) not null default 0,
+`finance_book` varchar(140),
+`target_batch_no` varchar(140),
+`target_serial_no` text,
+`amended_from` varchar(140),
+`target_is_fixed_asset` int(1) not null default 0,
+`target_has_batch_no` int(1) not null default 0,
+`target_has_serial_no` int(1) not null default 0,
+`stock_items_total` decimal(21,9) not null default 0,
+`asset_items_total` decimal(21,9) not null default 0,
+`service_items_total` decimal(21,9) not null default 0,
+`total_value` decimal(21,9) not null default 0,
+`target_incoming_rate` decimal(21,9) not null default 0,
+`cost_center` varchar(140),
+`target_fixed_asset_account` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+`_seen` text,
+index `posting_date`(`posting_date`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:19,905 WARNING database DDL Query made to DB:
+create table `tabAsset Maintenance Log` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`asset_maintenance` varchar(140),
+`naming_series` varchar(140),
+`asset_name` varchar(140),
+`item_code` varchar(140),
+`item_name` varchar(140),
+`task` varchar(140),
+`task_name` varchar(140),
+`maintenance_type` varchar(140),
+`periodicity` varchar(140),
+`has_certificate` int(1) not null default 0,
+`certificate_attachement` text,
+`maintenance_status` varchar(140),
+`assign_to_name` varchar(140),
+`task_assignee_email` varchar(140),
+`due_date` date,
+`completion_date` date,
+`description` varchar(140),
+`actions_performed` longtext,
+`amended_from` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+`_seen` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,020 WARNING database DDL Query made to DB:
+create table `tabAsset Depreciation Schedule` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`asset` varchar(140),
+`naming_series` varchar(140),
+`company` varchar(140),
+`gross_purchase_amount` decimal(21,9) not null default 0,
+`opening_accumulated_depreciation` decimal(21,9) not null default 0,
+`opening_number_of_booked_depreciations` int(11) not null default 0,
+`finance_book` varchar(140),
+`finance_book_id` int(11) not null default 0,
+`depreciation_method` varchar(140),
+`total_number_of_depreciations` int(11) not null default 0,
+`rate_of_depreciation` decimal(21,9) not null default 0,
+`daily_prorata_based` int(1) not null default 0,
+`shift_based` int(1) not null default 0,
+`frequency_of_depreciation` int(11) not null default 0,
+`expected_value_after_useful_life` decimal(21,9) not null default 0,
+`notes` text,
+`status` varchar(140),
+`amended_from` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,090 WARNING database DDL Query made to DB:
+create table `tabAsset Movement Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`company` varchar(140),
+`asset` varchar(140),
+`source_location` varchar(140),
+`from_employee` varchar(140),
+`asset_name` varchar(140),
+`target_location` varchar(140),
+`to_employee` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,154 WARNING database DDL Query made to DB:
+create table `tabAsset Shift Factor` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`shift_name` varchar(140) unique,
+`shift_factor` decimal(21,9) not null default 0,
+`default` int(1) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,232 WARNING database DDL Query made to DB:
+create table `tabAsset Repair Consumed Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`warehouse` varchar(140),
+`valuation_rate` decimal(21,9) not null default 0,
+`consumed_quantity` varchar(140),
+`total_value` decimal(21,9) not null default 0,
+`serial_no` text,
+`serial_and_batch_bundle` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,417 WARNING database DDL Query made to DB:
+create table `tabWebsite Filter Field` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`fieldname` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,476 WARNING database DDL Query made to DB:
+create table `tabHomepage Section Card` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`title` varchar(140),
+`subtitle` varchar(140),
+`image` text,
+`content` text,
+`route` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,559 WARNING database DDL Query made to DB:
+create table `tabHomepage Section` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`section_based_on` varchar(140),
+`no_of_columns` varchar(140) default '3',
+`section_html` longtext,
+`section_order` int(11) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,633 WARNING database DDL Query made to DB:
+create table `tabWebsite Attribute` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`attribute` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,767 WARNING database DDL Query made to DB:
+create table `tabMaintenance Schedule Detail` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`scheduled_date` date,
+`actual_date` date,
+`sales_person` varchar(140),
+`completion_status` varchar(140) default 'Pending',
+`serial_no` text,
+`item_reference` varchar(140),
+index `item_code`(`item_code`),
+index `scheduled_date`(`scheduled_date`),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,840 WARNING database DDL Query made to DB:
+create table `tabMaintenance Schedule Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`description` longtext,
+`start_date` date,
+`end_date` date,
+`periodicity` varchar(140),
+`no_of_visits` int(11) not null default 0,
+`sales_person` varchar(140),
+`serial_no` text,
+`sales_order` varchar(140),
+`serial_and_batch_bundle` varchar(140),
+index `item_code`(`item_code`),
+index `start_date`(`start_date`),
+index `end_date`(`end_date`),
+index `sales_order`(`sales_order`),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:20,902 WARNING database DDL Query made to DB:
+create table `tabMaintenance Visit Purpose` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`service_person` varchar(140),
+`serial_no` varchar(140),
+`description` longtext,
+`work_done` text,
+`prevdoc_doctype` varchar(140),
+`prevdoc_docname` varchar(140),
+`maintenance_schedule_detail` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,021 WARNING database DDL Query made to DB:
+create table `tabMaintenance Visit` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`naming_series` varchar(140),
+`customer` varchar(140),
+`customer_name` varchar(140),
+`address_display` text,
+`contact_display` text,
+`contact_mobile` varchar(140),
+`contact_email` varchar(140),
+`maintenance_schedule` varchar(140),
+`maintenance_schedule_detail` varchar(140),
+`mntc_date` date,
+`mntc_time` time(6),
+`completion_status` varchar(140),
+`maintenance_type` varchar(140) default 'Unscheduled',
+`customer_feedback` text,
+`status` varchar(140) default 'Draft',
+`amended_from` varchar(140),
+`company` varchar(140),
+`customer_address` varchar(140),
+`contact_person` varchar(140),
+`territory` varchar(140),
+`customer_group` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,125 WARNING database DDL Query made to DB:
+create table `tabMaintenance Schedule` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`naming_series` varchar(140),
+`customer` varchar(140),
+`status` varchar(140) default 'Draft',
+`transaction_date` date,
+`customer_name` varchar(140),
+`contact_person` varchar(140),
+`contact_mobile` varchar(140),
+`contact_email` varchar(140),
+`contact_display` text,
+`customer_address` varchar(140),
+`address_display` text,
+`territory` varchar(140),
+`customer_group` varchar(140),
+`company` varchar(140),
+`amended_from` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `customer`(`customer`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,206 WARNING database DDL Query made to DB:
+create table `tabImport Supplier Invoice` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`invoice_series` varchar(140),
+`company` varchar(140),
+`item_code` varchar(140),
+`supplier_group` varchar(140),
+`tax_account` varchar(140),
+`default_buying_price_list` varchar(140),
+`zip_file` text,
+`status` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,273 WARNING database DDL Query made to DB:
+create table `tabUAE VAT Account` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`account` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,356 WARNING database DDL Query made to DB:
+create table `tabLower Deduction Certificate` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`tax_withholding_category` varchar(140),
+`fiscal_year` varchar(140),
+`company` varchar(140),
+`certificate_no` varchar(140) unique,
+`supplier` varchar(140),
+`pan_no` varchar(140),
+`valid_from` date,
+`valid_upto` date,
+`rate` decimal(21,9) not null default 0,
+`certificate_limit` decimal(21,9) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,424 WARNING database DDL Query made to DB:
+create table `tabSouth Africa VAT Settings` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`company` varchar(140) unique,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,501 WARNING database DDL Query made to DB:
+create table `tabUAE VAT Settings` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`company` varchar(140) unique,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,728 WARNING database DDL Query made to DB:
+create table `tabQuality Meeting Agenda` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`agenda` longtext,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,786 WARNING database DDL Query made to DB:
+create table `tabQuality Feedback Template Parameter` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`parameter` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,857 WARNING database DDL Query made to DB:
+create table `tabQuality Review` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`goal` varchar(140),
+`date` date,
+`procedure` varchar(140),
+`status` varchar(140) default 'Open',
+`additional_information` text,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:21,927 WARNING database DDL Query made to DB:
+create table `tabQuality Feedback` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`template` varchar(140),
+`document_type` varchar(140),
+`document_name` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,011 WARNING database DDL Query made to DB:
+create table `tabQuality Procedure` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`quality_procedure_name` varchar(140) unique,
+`process_owner` varchar(140),
+`process_owner_full_name` varchar(140),
+`parent_quality_procedure` varchar(140),
+`is_group` int(1) not null default 0,
+`rgt` int(11) not null default 0,
+`lft` int(11) not null default 0,
+`old_parent` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,077 WARNING database DDL Query made to DB:
+create table `tabQuality Procedure Process` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`process_description` longtext,
+`procedure` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,174 WARNING database DDL Query made to DB:
+create table `tabQuality Feedback Template` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`template` varchar(140) unique,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,242 WARNING database DDL Query made to DB:
+create table `tabQuality Action Resolution` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`problem` longtext,
+`resolution` longtext,
+`status` varchar(140),
+`responsible` varchar(140),
+`completion_by` date,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,305 WARNING database DDL Query made to DB:
+create table `tabNon Conformance` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`subject` varchar(140),
+`procedure` varchar(140),
+`process_owner` varchar(140),
+`full_name` varchar(140),
+`status` varchar(140),
+`details` longtext,
+`corrective_action` longtext,
+`preventive_action` longtext,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,389 WARNING database DDL Query made to DB:
+create table `tabQuality Review Objective` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`objective` text,
+`target` varchar(140),
+`uom` varchar(140),
+`status` varchar(140) default 'Open',
+`review` longtext,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,465 WARNING database DDL Query made to DB:
+create table `tabQuality Goal` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`goal` varchar(140) unique,
+`frequency` varchar(140) default 'None',
+`procedure` varchar(140),
+`weekday` varchar(140),
+`date` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,556 WARNING database DDL Query made to DB:
+create table `tabQuality Feedback Parameter` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`parameter` varchar(140),
+`rating` varchar(140) default '1',
+`feedback` longtext,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,635 WARNING database DDL Query made to DB:
+create table `tabQuality Meeting` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`status` varchar(140) default 'Open',
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,706 WARNING database DDL Query made to DB:
+create table `tabQuality Goal Objective` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`objective` text,
+`target` varchar(140),
+`uom` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,774 WARNING database DDL Query made to DB:
+create table `tabQuality Action` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`corrective_preventive` varchar(140) default 'Corrective',
+`review` varchar(140),
+`feedback` varchar(140),
+`status` varchar(140) default 'Open',
+`date` date,
+`goal` varchar(140),
+`procedure` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,839 WARNING database DDL Query made to DB:
+create table `tabQuality Meeting Minutes` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`document_type` varchar(140),
+`document_name` varchar(140),
+`minute` longtext,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:22,932 WARNING database DDL Query made to DB:
+create table `tabCommunication Medium Timeslot` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`day_of_week` varchar(140),
+`from_time` time(6),
+`to_time` time(6),
+`employee_group` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,003 WARNING database DDL Query made to DB:
+create table `tabCommunication Medium` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`communication_channel` varchar(140),
+`communication_medium_type` varchar(140),
+`catch_all` varchar(140),
+`provider` varchar(140),
+`disabled` int(1) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,065 WARNING database DDL Query made to DB:
+create table `tabIncoming Call Settings` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`call_routing` varchar(140) default 'Sequential',
+`greeting_message` varchar(140),
+`agent_busy_message` varchar(140),
+`agent_unavailable_message` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,151 WARNING database DDL Query made to DB:
+create table `tabTelephony Call Type` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`call_type` varchar(140) unique,
+`amended_from` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,252 WARNING database DDL Query made to DB:
+create table `tabVoice Call Settings` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`user` varchar(140) unique,
+`call_receiving_device` varchar(140) default 'Computer',
+`greeting_message` varchar(140),
+`agent_busy_message` varchar(140),
+`agent_unavailable_message` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,323 WARNING database DDL Query made to DB:
+create table `tabIncoming Call Handling Schedule` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`day_of_week` varchar(140),
+`from_time` time(6) default '9:00:00',
+`to_time` time(6) default '17:00:00',
+`agent_group` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,409 WARNING database DDL Query made to DB:
+create table `tabCall Log` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`id` varchar(140) unique,
+`from` varchar(140),
+`to` varchar(140),
+`call_received_by` varchar(140),
+`employee_user_id` varchar(140),
+`medium` varchar(140),
+`start_time` datetime(6),
+`end_time` datetime(6),
+`type` varchar(140),
+`customer` varchar(140),
+`status` varchar(140),
+`duration` decimal(21,9),
+`recording_url` varchar(140),
+`type_of_call` varchar(140),
+`summary` text,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,574 WARNING database DDL Query made to DB:
+create table `tabBulk Transaction Log Detail` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`from_doctype` varchar(140),
+`transaction_name` varchar(140),
+`date` date,
+`time` time(6),
+`transaction_status` varchar(140),
+`error_description` longtext,
+`to_doctype` varchar(140),
+`retried` int(11) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `from_doctype`(`from_doctype`),
+index `transaction_name`(`transaction_name`),
+index `date`(`date`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,672 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Order Service Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`qty` decimal(21,9) not null default 0,
+`rate` decimal(21,9) not null default 0,
+`amount` decimal(21,9) not null default 0,
+`fg_item` varchar(140),
+`fg_item_qty` decimal(21,9) not null default 1.0,
+`purchase_order_item` varchar(140),
+`material_request` varchar(140),
+`material_request_item` varchar(140),
+index `item_code`(`item_code`),
+index `purchase_order_item`(`purchase_order_item`),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,777 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Order` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`title` varchar(140) default '{supplier_name}',
+`naming_series` varchar(140),
+`purchase_order` varchar(140),
+`supplier` varchar(140),
+`supplier_name` varchar(140),
+`supplier_warehouse` varchar(140),
+`company` varchar(140),
+`transaction_date` date,
+`schedule_date` date,
+`amended_from` varchar(140),
+`cost_center` varchar(140),
+`project` varchar(140),
+`set_warehouse` varchar(140),
+`total_qty` decimal(21,9) not null default 0,
+`total` decimal(21,9) not null default 0,
+`set_reserve_warehouse` varchar(140),
+`supplier_address` varchar(140),
+`address_display` text,
+`contact_person` varchar(140),
+`contact_display` text,
+`contact_mobile` text,
+`contact_email` text,
+`shipping_address` varchar(140),
+`shipping_address_display` text,
+`billing_address` varchar(140),
+`billing_address_display` text,
+`distribute_additional_costs_based_on` varchar(140) default 'Qty',
+`total_additional_costs` decimal(21,9) not null default 0,
+`status` varchar(140) default 'Draft',
+`per_received` decimal(21,9) not null default 0,
+`select_print_heading` varchar(140),
+`letter_head` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `supplier`(`supplier`),
+index `transaction_date`(`transaction_date`),
+index `status`(`status`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:23,896 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Receipt Supplied Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`main_item_code` varchar(140),
+`rm_item_code` varchar(140),
+`item_name` varchar(140),
+`bom_detail_no` varchar(140),
+`description` longtext,
+`stock_uom` varchar(140),
+`conversion_factor` decimal(21,9) not null default 1.0,
+`reference_name` varchar(140),
+`rate` decimal(21,9) not null default 0,
+`amount` decimal(21,9) not null default 0,
+`available_qty_for_consumption` decimal(21,9) not null default 0,
+`required_qty` decimal(21,9) not null default 0,
+`consumed_qty` decimal(21,9) not null default 0,
+`current_stock` decimal(21,9) not null default 0,
+`serial_and_batch_bundle` varchar(140),
+`use_serial_batch_fields` int(1) not null default 0,
+`subcontracting_order` varchar(140),
+`serial_no` text,
+`batch_no` varchar(140),
+`expense_account` varchar(140),
+`cost_center` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,008 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Order Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`bom` varchar(140),
+`include_exploded_items` int(1) not null default 0,
+`schedule_date` date,
+`expected_delivery_date` date,
+`description` longtext,
+`image` text,
+`qty` decimal(21,9) not null default 1.0,
+`received_qty` decimal(21,9) not null default 0,
+`returned_qty` decimal(21,9) not null default 0,
+`stock_uom` varchar(140),
+`conversion_factor` decimal(21,9) not null default 1.0,
+`rate` decimal(21,9) not null default 0,
+`amount` decimal(21,9) not null default 0,
+`rm_cost_per_qty` decimal(21,9) not null default 0,
+`service_cost_per_qty` decimal(21,9) not null default 0,
+`additional_cost_per_qty` decimal(21,9) not null default 0,
+`warehouse` varchar(140),
+`expense_account` varchar(140),
+`manufacturer` varchar(140),
+`manufacturer_part_no` varchar(140),
+`material_request` varchar(140),
+`material_request_item` varchar(140),
+`cost_center` varchar(140),
+`project` varchar(140),
+`purchase_order_item` varchar(140),
+`page_break` int(1) not null default 0,
+`subcontracting_conversion_factor` decimal(21,9) not null default 0,
+`job_card` varchar(140),
+index `item_code`(`item_code`),
+index `expected_delivery_date`(`expected_delivery_date`),
+index `material_request`(`material_request`),
+index `material_request_item`(`material_request_item`),
+index `purchase_order_item`(`purchase_order_item`),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,135 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Receipt Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`item_code` varchar(140),
+`item_name` varchar(140),
+`is_scrap_item` int(1) not null default 0,
+`description` longtext,
+`brand` varchar(140),
+`image` text,
+`received_qty` decimal(21,9) not null default 0,
+`qty` decimal(21,9) not null default 0,
+`rejected_qty` decimal(21,9) not null default 0,
+`returned_qty` decimal(21,9) not null default 0,
+`stock_uom` varchar(140),
+`conversion_factor` decimal(21,9) not null default 1.0,
+`rate` decimal(21,9) not null default 0,
+`amount` decimal(21,9) not null default 0,
+`rm_cost_per_qty` decimal(21,9) not null default 0,
+`service_cost_per_qty` decimal(21,9) not null default 0,
+`additional_cost_per_qty` decimal(21,9) not null default 0,
+`scrap_cost_per_qty` decimal(21,9) not null default 0,
+`rm_supp_cost` decimal(21,9) not null default 0,
+`warehouse` varchar(140),
+`subcontracting_order` varchar(140),
+`subcontracting_order_item` varchar(140),
+`subcontracting_receipt_item` varchar(140),
+`rejected_warehouse` varchar(140),
+`bom` varchar(140),
+`include_exploded_items` int(1) not null default 0,
+`quality_inspection` varchar(140),
+`schedule_date` date,
+`reference_name` varchar(140),
+`serial_and_batch_bundle` varchar(140),
+`use_serial_batch_fields` int(1) not null default 0,
+`rejected_serial_and_batch_bundle` varchar(140),
+`serial_no` text,
+`rejected_serial_no` text,
+`batch_no` varchar(140),
+`manufacturer` varchar(140),
+`manufacturer_part_no` varchar(140),
+`expense_account` varchar(140),
+`cost_center` varchar(140),
+`project` varchar(140),
+`page_break` int(1) not null default 0,
+`purchase_order` varchar(140),
+`purchase_order_item` varchar(140),
+index `item_code`(`item_code`),
+index `subcontracting_order`(`subcontracting_order`),
+index `subcontracting_order_item`(`subcontracting_order_item`),
+index `purchase_order`(`purchase_order`),
+index `purchase_order_item`(`purchase_order_item`),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,267 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Receipt` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`title` varchar(140) default '{supplier_name}',
+`naming_series` varchar(140),
+`supplier` varchar(140),
+`supplier_name` varchar(140),
+`supplier_delivery_note` varchar(140),
+`company` varchar(140),
+`posting_date` date,
+`posting_time` time(6),
+`set_posting_time` int(1) not null default 0,
+`is_return` int(1) not null default 0,
+`return_against` varchar(140),
+`cost_center` varchar(140),
+`project` varchar(140),
+`set_warehouse` varchar(140),
+`rejected_warehouse` varchar(140),
+`supplier_warehouse` varchar(140),
+`total_qty` decimal(21,9) not null default 0,
+`total` decimal(21,9) not null default 0,
+`in_words` varchar(240),
+`bill_no` varchar(140),
+`bill_date` date,
+`supplier_address` varchar(140),
+`contact_person` varchar(140),
+`address_display` text,
+`contact_display` text,
+`contact_mobile` text,
+`contact_email` text,
+`shipping_address` varchar(140),
+`shipping_address_display` text,
+`billing_address` varchar(140),
+`billing_address_display` text,
+`distribute_additional_costs_based_on` varchar(140) default 'Qty',
+`total_additional_costs` decimal(21,9) not null default 0,
+`amended_from` varchar(140),
+`range` varchar(140),
+`represents_company` varchar(140),
+`status` varchar(140) default 'Draft',
+`per_returned` decimal(21,9) not null default 0,
+`auto_repeat` varchar(140),
+`letter_head` varchar(140),
+`language` varchar(140),
+`instructions` text,
+`select_print_heading` varchar(140),
+`remarks` text,
+`transporter_name` varchar(140),
+`lr_no` varchar(140),
+`lr_date` date,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `supplier`(`supplier`),
+index `posting_date`(`posting_date`),
+index `status`(`status`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,362 WARNING database DDL Query made to DB:
+create table `tabSubcontracting BOM` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`is_active` int(1) not null default 1,
+`finished_good` varchar(140),
+`finished_good_qty` decimal(21,9) not null default 1.0,
+`finished_good_uom` varchar(140),
+`finished_good_bom` varchar(140),
+`service_item` varchar(140),
+`service_item_qty` decimal(21,9) not null default 1.0,
+`service_item_uom` varchar(140),
+`conversion_factor` decimal(21,9) not null default 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `finished_good`(`finished_good`),
+index `finished_good_bom`(`finished_good_bom`),
+index `service_item`(`service_item`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,449 WARNING database DDL Query made to DB:
+create table `tabSubcontracting Order Supplied Item` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`main_item_code` varchar(140),
+`rm_item_code` varchar(140),
+`stock_uom` varchar(140),
+`conversion_factor` decimal(21,9) not null default 1.0,
+`reserve_warehouse` varchar(140),
+`bom_detail_no` varchar(140),
+`reference_name` varchar(140),
+`rate` decimal(21,9) not null default 0,
+`amount` decimal(21,9) not null default 0,
+`required_qty` decimal(21,9) not null default 0,
+`supplied_qty` decimal(21,9) not null default 0,
+`consumed_qty` decimal(21,9) not null default 0,
+`returned_qty` decimal(21,9) not null default 0,
+`total_supplied_qty` decimal(21,9) not null default 0,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,522 WARNING database DDL Query made to DB:
+create table `tabCommon Code` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`code_list` varchar(140),
+`title` varchar(300),
+`common_code` varchar(300),
+`description` text,
+`additional_data` longtext,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `code_list`(`code_list`),
+index `common_code`(`common_code`),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:24,569 WARNING database DDL Query made to DB:
+ALTER TABLE `tabCommon Code`
+				ADD INDEX IF NOT EXISTS `code_list_common_code_index`(code_list, common_code)
+2025-06-18 05:14:24,615 WARNING database DDL Query made to DB:
+create table `tabCode List` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`title` varchar(140),
+`canonical_uri` varchar(140),
+`url` varchar(140),
+`default_common_code` varchar(140),
+`version` varchar(140),
+`publisher` varchar(140),
+`publisher_id` varchar(140),
+`description` text,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 05:14:28,300 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAddress` ADD COLUMN `tax_category` varchar(140), ADD COLUMN `is_your_company_address` int(1) not null default 0
+2025-06-18 05:14:28,368 WARNING database DDL Query made to DB:
+ALTER TABLE `tabContact` ADD COLUMN `is_billing_contact` int(1) not null default 0
+2025-06-18 05:16:11,686 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2025-06-18 05:16:12,352 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` DROP INDEX `print_heading`
+2025-06-18 05:16:13,053 WARNING database DDL Query made to DB:
+ALTER TABLE `tabPrint Heading` ADD UNIQUE INDEX IF NOT EXISTS print_heading (`print_heading`)
+2025-06-18 05:25:01,551 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Review Objective`
+2025-06-18 05:25:01,575 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLedger Health`
+2025-06-18 05:25:01,596 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCashier Closing Payments`
+2025-06-18 05:25:01,640 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpportunity`
+2025-06-18 05:25:01,672 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Partner`
+2025-06-18 05:25:01,700 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card Item`
+2025-06-18 05:25:01,735 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabHoliday List`
+2025-06-18 05:25:01,763 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Operation`
+2025-06-18 05:25:01,791 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Scoring Variable`
+2025-06-18 05:25:01,818 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Group Item`
+2025-06-18 05:25:01,847 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPricing Rule Item Group`
+2025-06-18 05:25:01,874 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Goal Objective`
+2025-06-18 05:25:01,922 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRequest for Quotation Item`
+2025-06-18 05:25:01,953 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Movement`
+2025-06-18 05:25:01,987 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Default`
+2025-06-18 05:25:02,010 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Item`
+2025-06-18 05:25:02,041 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPSOA Cost Center`
+2025-06-18 05:25:02,075 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Deferred Accounting`
+2025-06-18 05:25:02,108 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Depreciation Schedule`
+2025-06-18 05:25:02,159 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Order Item`
+2025-06-18 05:25:02,183 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee Group`
+2025-06-18 05:25:02,208 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Criteria`
+2025-06-18 05:25:02,237 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Closing Entry Taxes`
+2025-06-18 05:25:02,273 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Shift Factor`
+2025-06-18 05:25:02,303 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Payment Reconciliation Log Allocations`
+2025-06-18 05:25:02,332 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIncoming Call Handling Schedule`
+2025-06-18 05:25:02,359 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmail Digest Recipient`
+2025-06-18 05:25:02,386 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Order Reference`
+2025-06-18 05:25:02,412 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Taxes and Charges Template`
+2025-06-18 05:25:02,446 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Entry Type`
+2025-06-18 05:25:02,475 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubscription Plan Detail`
+2025-06-18 05:25:02,503 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Quality Inspection Parameter`
+2025-06-18 05:25:02,535 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJournal Entry Template`
+2025-06-18 05:25:02,561 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Customer Detail`
+2025-06-18 05:25:02,592 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Guarantee`
+2025-06-18 05:25:02,624 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Capitalization`
+2025-06-18 05:25:02,656 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Order`
+2025-06-18 05:25:02,697 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJournal Entry`
+2025-06-18 05:25:02,742 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuotation Item`
+2025-06-18 05:25:02,772 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLocation`
+2025-06-18 05:25:02,801 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Schedule Item`
+2025-06-18 05:25:02,837 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Transaction`
+2025-06-18 05:25:02,866 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCommon Code`
+2025-06-18 05:25:02,893 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Variant`
+2025-06-18 05:25:02,922 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Value Adjustment`
+2025-06-18 05:25:02,952 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLoyalty Program`
+2025-06-18 05:25:02,978 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Movement Item`
+2025-06-18 05:25:03,008 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting BOM`
+2025-06-18 05:25:03,033 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWebsite Item Group`
+2025-06-18 05:25:03,078 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Entry`
+2025-06-18 05:25:03,102 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuotation Lost Reason`
+2025-06-18 05:25:03,129 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCost Center Allocation`
+2025-06-18 05:25:03,154 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Entry Deduction`
+2025-06-18 05:25:03,190 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Statement Import`
+2025-06-18 05:25:03,213 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRequest for Quotation Supplier`
+2025-06-18 05:25:03,239 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject Template`
+2025-06-18 05:25:03,294 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuotation`
+2025-06-18 05:25:03,332 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Receipt Item`
+2025-06-18 05:25:03,357 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCurrency Exchange Settings Result`
+2025-06-18 05:25:03,383 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabImport Supplier Invoice`
+2025-06-18 05:25:03,410 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBisect Nodes`
+2025-06-18 05:25:03,443 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDelivery Trip`
+2025-06-18 05:25:03,472 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLedger Merge`
+2025-06-18 05:25:03,494 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAllowed Dimension`
+2025-06-18 05:25:03,528 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Receipt Supplied Item`
+2025-06-18 05:25:03,554 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Website Item`
+2025-06-18 05:25:03,585 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLower Deduction Certificate`
+2025-06-18 05:25:03,609 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Clearance Detail`
+2025-06-18 05:25:03,639 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBudget`
+2025-06-18 05:25:03,663 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLedger Merge Accounts`
+2025-06-18 05:25:03,696 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBlanket Order`
+2025-06-18 05:25:03,720 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject Template Task`
+2025-06-18 05:25:03,747 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDunning Letter Text`
+2025-06-18 05:25:03,772 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Repair Consumed Item`
+2025-06-18 05:25:03,809 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWork Order`
+2025-06-18 05:25:03,865 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDelivery Note`
+2025-06-18 05:25:03,900 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaterial Request Item`
+2025-06-18 05:25:03,930 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOperation`
+2025-06-18 05:25:03,961 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPick List`
+2025-06-18 05:25:04,005 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Quotation`
+2025-06-18 05:25:04,044 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan`
+2025-06-18 05:25:04,071 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabClosing Stock Balance`
+2025-06-18 05:25:04,102 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Visit`
+2025-06-18 05:25:04,125 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDesignation`
+2025-06-18 05:25:04,151 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Withholding Category`
+2025-06-18 05:25:04,178 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Reconciliation`
+2025-06-18 05:25:04,206 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAuthorization Rule`
+2025-06-18 05:25:04,229 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShare Balance`
+2025-06-18 05:25:04,251 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Transaction Mapping`
+2025-06-18 05:25:04,277 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Taxes and Charges Template`
+2025-06-18 05:25:04,302 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Reconciliation Allocation`
+2025-06-18 05:25:04,326 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Supplier`
+2025-06-18 05:25:04,352 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCoupon Code`
+2025-06-18 05:25:04,378 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Standing`
+2025-06-18 05:25:04,405 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Capitalization Stock Item`
+2025-06-18 05:25:04,429 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBrand`
+2025-06-18 05:25:04,462 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDunning`
+2025-06-18 05:25:04,484 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTransaction Deletion Record Details`
+2025-06-18 05:25:04,509 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCampaign`
+2025-06-18 05:25:04,537 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBatch`
+2025-06-18 05:25:04,563 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShare Type`
+2025-06-18 05:25:04,587 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDowntime Entry`
+2025-06-18 05:25:04,623 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLead`
+2025-06-18 05:25:04,644 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Item Group`
+2025-06-18 05:25:04,674 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProspect`
+2025-06-18 05:25:04,697 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabContract Fulfilment Checklist`
+2025-06-18 05:25:04,729 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabInventory Dimension`
+2025-06-18 05:25:04,752 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Tax Template Detail`
+2025-06-18 05:25:04,780 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShareholder`
+2025-06-18 05:25:04,809 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmail Digest`
+2025-06-18 05:25:04,832 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUOM Conversion Detail`
+2025-06-18 05:25:04,854 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAvailability Of Slots`
+2025-06-18 05:25:04,878 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBranch`
+2025-06-18 05:25:04,914 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipment`
+2025-06-18 05:25:04,939 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Scoring Standing`
+2025-06-18 05:25:04,968 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Item`
+2025-06-18 05:25:04,989 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Tax`
+2025-06-18 05:25:05,015 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipping Rule Condition`
+2025-06-18 05:25:05,038 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Profile User`
+2025-06-18 05:25:05,062 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCompetitor Detail`
+2025-06-18 05:25:05,083 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Category Account`
+2025-06-18 05:25:05,105 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmail Campaign`
+2025-06-18 05:25:05,130 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabFinance Book`
+2025-06-18 05:25:05,161 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Order Item`
+2025-06-18 05:25:05,187 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSouth Africa VAT Account`
+2025-06-18 05:25:05,210 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Schedule Detail`
+2025-06-18 05:25:05,239 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTimesheet Detail`
+2025-06-18 05:25:05,261 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabService Level Priority`
+2025-06-18 05:25:05,283 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabClosed Document`
+2025-06-18 05:25:05,306 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Material Request Warehouse`
+2025-06-18 05:25:05,334 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Ledger Entry`
+2025-06-18 05:25:05,359 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUnreconcile Payment Entries`
+2025-06-18 05:25:05,381 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPSOA Project`
+2025-06-18 05:25:05,404 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Scoring Criteria`
+2025-06-18 05:25:05,431 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaterial Request Plan Item`
+2025-06-18 05:25:05,462 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWarranty Claim`
+2025-06-18 05:25:05,488 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccount Closing Balance`
+2025-06-18 05:25:05,510 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject User`
+2025-06-18 05:25:05,536 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTerritory Item`
+2025-06-18 05:25:05,559 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Terms Template Detail`
+2025-06-18 05:25:05,585 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabHomepage Section`
+2025-06-18 05:25:05,608 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Variant Attribute`
+2025-06-18 05:25:05,632 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustomer Item`
+2025-06-18 05:25:05,656 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAdvance Payment Ledger Entry`
+2025-06-18 05:25:05,678 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Team Member`
+2025-06-18 05:25:05,702 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLinked Location`
+2025-06-18 05:25:05,723 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPrice List Country`
+2025-06-18 05:25:05,746 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Website Operation`
+2025-06-18 05:25:05,772 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Opening Entry Detail`
+2025-06-18 05:25:05,806 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Item Valuation`
+2025-06-18 05:25:05,830 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBlanket Order Item`
+2025-06-18 05:25:05,854 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Invoice Merge Log`
+2025-06-18 05:25:05,880 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCost Center`
+2025-06-18 05:25:05,906 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabInvoice Discounting`
+2025-06-18 05:25:05,934 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Procedure`
+2025-06-18 05:25:05,956 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Gateway Account`
+2025-06-18 05:25:05,990 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTimesheet`
+2025-06-18 05:25:06,010 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUOM`
+2025-06-18 05:25:06,041 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Maintenance Log`
+2025-06-18 05:25:06,065 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Scrap Item`
+2025-06-18 05:25:06,087 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAllowed To Transact With`
+2025-06-18 05:25:06,113 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLoyalty Point Entry`
+2025-06-18 05:25:06,143 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Creator Item`
+2025-06-18 05:25:06,173 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Group`
+2025-06-18 05:25:06,200 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCashier Closing`
+2025-06-18 05:25:06,229 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLoyalty Program Collection`
+2025-06-18 05:25:06,256 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Inspection Reading`
+2025-06-18 05:25:06,283 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTarget Detail`
+2025-06-18 05:25:06,304 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Account Subtype`
+2025-06-18 05:25:06,328 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabContract Template`
+2025-06-18 05:25:06,356 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Meeting Agenda`
+2025-06-18 05:25:06,381 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWorkstation Type`
+2025-06-18 05:25:06,406 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCall Log`
+2025-06-18 05:25:06,430 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Shift Allocation`
+2025-06-18 05:25:06,458 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTransaction Deletion Record`
+2025-06-18 05:25:06,514 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Invoice`
+2025-06-18 05:25:06,536 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabParty Type`
+2025-06-18 05:25:06,566 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWork Order Operation`
+2025-06-18 05:25:06,595 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Capitalization Service Item`
+2025-06-18 05:25:06,623 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Taxes and Charges`
+2025-06-18 05:25:06,649 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Order Service Item`
+2025-06-18 05:25:06,677 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupport Search Source`
+2025-06-18 05:25:06,701 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabFiscal Year`
+2025-06-18 05:25:06,727 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUAE VAT Settings`
+2025-06-18 05:25:06,750 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Partner Type`
+2025-06-18 05:25:06,779 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabContract`
+2025-06-18 05:25:06,804 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOverdue Payment`
+2025-06-18 05:25:06,828 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIssue Type`
+2025-06-18 05:25:06,853 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCRM Note`
+2025-06-18 05:25:06,879 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDunning Type`
+2025-06-18 05:25:06,905 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSLA Fulfilled On Status`
+2025-06-18 05:25:06,928 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLedger Health Monitor Company`
+2025-06-18 05:25:06,950 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAdvance Tax`
+2025-06-18 05:25:06,989 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Entry`
+2025-06-18 05:25:07,012 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Invoice Reference`
+2025-06-18 05:25:07,037 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Invoice Advance`
+2025-06-18 05:25:07,060 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Accounting Ledger Items`
+2025-06-18 05:25:07,104 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem`
+2025-06-18 05:25:07,130 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLanded Cost Purchase Receipt`
+2025-06-18 05:25:07,156 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPromotional Scheme Price Discount`
+2025-06-18 05:25:07,182 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTerms and Conditions`
+2025-06-18 05:25:07,207 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Term`
+2025-06-18 05:25:07,233 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPricing Rule Brand`
+2025-06-18 05:25:07,261 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipping Rule`
+2025-06-18 05:25:07,283 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMonthly Distribution`
+2025-06-18 05:25:07,312 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Opening Entry`
+2025-06-18 05:25:07,335 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLoyalty Point Entry Redemption`
+2025-06-18 05:25:07,361 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMonthly Distribution Percentage`
+2025-06-18 05:25:07,383 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee Internal Work History`
+2025-06-18 05:25:07,412 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBin`
+2025-06-18 05:25:07,451 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card`
+2025-06-18 05:25:07,474 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipment Delivery Note`
+2025-06-18 05:25:07,498 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee External Work History`
+2025-06-18 05:25:07,525 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Goal`
+2025-06-18 05:25:07,556 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSerial and Batch Bundle`
+2025-06-18 05:25:07,580 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMode of Payment`
+2025-06-18 05:25:07,608 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard`
+2025-06-18 05:25:07,629 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLost Reason Detail`
+2025-06-18 05:25:07,661 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPacked Item`
+2025-06-18 05:25:07,682 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDriving License Category`
+2025-06-18 05:25:07,708 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Feedback`
+2025-06-18 05:25:07,738 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Creator`
+2025-06-18 05:25:07,764 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPeriod Closing Voucher`
+2025-06-18 05:25:07,785 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Search Fields`
+2025-06-18 05:25:07,817 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Reconciliation Item`
+2025-06-18 05:25:07,840 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Variable`
+2025-06-18 05:25:07,861 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWarehouse Type`
+2025-06-18 05:25:07,886 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Scorecard Period`
+2025-06-18 05:25:07,907 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIssue Priority`
+2025-06-18 05:25:07,931 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Website Specification`
+2025-06-18 05:25:07,962 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCheque Print Template`
+2025-06-18 05:25:07,988 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Barcode`
+2025-06-18 05:25:08,011 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccounting Dimension`
+2025-06-18 05:25:08,040 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Schedule`
+2025-06-18 05:25:08,083 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Invoice Item`
+2025-06-18 05:25:08,108 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabActivity Cost`
+2025-06-18 05:25:08,139 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Reservation Entry`
+2025-06-18 05:25:08,166 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUOM Conversion Factor`
+2025-06-18 05:25:08,194 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabVideo`
+2025-06-18 05:25:08,222 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDelivery Stop`
+2025-06-18 05:25:08,248 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject Type`
+2025-06-18 05:25:08,280 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Receipt Item Supplied`
+2025-06-18 05:25:08,304 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Inspection Parameter`
+2025-06-18 05:25:08,329 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject Update`
+2025-06-18 05:25:08,379 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Receipt`
+2025-06-18 05:25:08,401 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustomer Group Item`
+2025-06-18 05:25:08,424 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpportunity Lost Reason`
+2025-06-18 05:25:08,449 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Team`
+2025-06-18 05:25:08,492 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCompany`
+2025-06-18 05:25:08,517 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabHoliday`
+2025-06-18 05:25:08,552 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier`
+2025-06-18 05:25:08,575 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Reconciliation Payment`
+2025-06-18 05:25:08,597 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPutaway Rule`
+2025-06-18 05:25:08,624 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Attribute Value`
+2025-06-18 05:25:08,655 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaterial Request`
+2025-06-18 05:25:08,679 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Statement Of Accounts CC`
+2025-06-18 05:25:08,709 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccount`
+2025-06-18 05:25:08,736 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Attribute`
+2025-06-18 05:25:08,768 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Request`
+2025-06-18 05:25:08,794 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank`
+2025-06-18 05:25:08,817 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLanded Cost Taxes and Charges`
+2025-06-18 05:25:08,843 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Payment Reconciliation Log`
+2025-06-18 05:25:08,865 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Inspection Template`
+2025-06-18 05:25:08,887 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLead Source`
+2025-06-18 05:25:08,918 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Review`
+2025-06-18 05:25:08,940 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCompetitor`
+2025-06-18 05:25:08,967 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card Scrap Item`
+2025-06-18 05:25:08,986 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabFiscal Year Company`
+2025-06-18 05:25:09,017 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Account`
+2025-06-18 05:25:09,038 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUOM Category`
+2025-06-18 05:25:09,068 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabGL Entry`
+2025-06-18 05:25:09,090 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Payment Ledger Items`
+2025-06-18 05:25:09,142 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Order`
+2025-06-18 05:25:09,174 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIssue`
+2025-06-18 05:25:09,200 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAppointment Booking Slots`
+2025-06-18 05:25:09,220 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Reconciliation Invoice`
+2025-06-18 05:25:09,248 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Action`
+2025-06-18 05:25:09,270 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWebsite Filter Field`
+2025-06-18 05:25:09,293 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBulk Transaction Log Detail`
+2025-06-18 05:25:09,319 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPrice List`
+2025-06-18 05:25:09,342 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Feedback Parameter`
+2025-06-18 05:25:09,367 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Activity`
+2025-06-18 05:25:09,393 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Update Batch`
+2025-06-18 05:25:09,418 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Invoice Payment`
+2025-06-18 05:25:09,440 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduct Bundle`
+2025-06-18 05:25:09,478 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Entry Reference`
+2025-06-18 05:25:09,519 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Invoice Item`
+2025-06-18 05:25:09,551 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabService Level Agreement`
+2025-06-18 05:25:09,573 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabInstallation Note Item`
+2025-06-18 05:25:09,600 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Withheld Vouchers`
+2025-06-18 05:25:09,623 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustoms Tariff Number`
+2025-06-18 05:25:09,651 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Capitalization Asset Item`
+2025-06-18 05:25:09,681 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRequest for Quotation`
+2025-06-18 05:25:09,706 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Manufacturer`
+2025-06-18 05:25:09,744 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPricing Rule`
+2025-06-18 05:25:09,774 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Alternative`
+2025-06-18 05:25:09,800 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAdvance Taxes and Charges`
+2025-06-18 05:25:09,827 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccounting Dimension Filter`
+2025-06-18 05:25:09,849 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Category`
+2025-06-18 05:25:09,872 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustomer Credit Limit`
+2025-06-18 05:25:09,900 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Order Item Supplied`
+2025-06-18 05:25:09,922 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Tax Template`
+2025-06-18 05:25:09,972 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Order`
+2025-06-18 05:25:10,002 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDepreciation Schedule`
+2025-06-18 05:25:10,024 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPlant Floor`
+2025-06-18 05:25:10,050 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpening Invoice Creation Tool Item`
+2025-06-18 05:25:10,085 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Quotation Item`
+2025-06-18 05:25:10,110 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCode List`
+2025-06-18 05:25:10,134 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Invoice Advance`
+2025-06-18 05:25:10,157 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Inspection Parameter Group`
+2025-06-18 05:25:10,183 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Meeting Minutes`
+2025-06-18 05:25:10,207 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Person`
+2025-06-18 05:25:10,230 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPegged Currency Details`
+2025-06-18 05:25:10,253 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card Scheduled Time`
+2025-06-18 05:25:10,276 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Material Request`
+2025-06-18 05:25:10,319 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Order Item`
+2025-06-18 05:25:10,342 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCommunication Medium Timeslot`
+2025-06-18 05:25:10,365 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSMS Log`
+2025-06-18 05:25:10,407 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Invoice Item`
+2025-06-18 05:25:10,429 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSouth Africa VAT Settings`
+2025-06-18 05:25:10,464 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Ledger Entry`
+2025-06-18 05:25:10,485 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubscription Invoice`
+2025-06-18 05:25:10,516 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPacking Slip`
+2025-06-18 05:25:10,539 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Visit Purpose`
+2025-06-18 05:25:10,561 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProspect Opportunity`
+2025-06-18 05:25:10,583 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabParty Link`
+2025-06-18 05:25:10,607 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWebsite Attribute`
+2025-06-18 05:25:10,630 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Withholding Account`
+2025-06-18 05:25:10,653 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCommunication Medium`
+2025-06-18 05:25:10,675 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPrint Heading`
+2025-06-18 05:25:10,698 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpportunity Type`
+2025-06-18 05:25:10,723 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabExchange Rate Revaluation`
+2025-06-18 05:25:10,755 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Price`
+2025-06-18 05:25:10,776 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMode of Payment Account`
+2025-06-18 05:25:10,801 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTask Depends On`
+2025-06-18 05:25:10,825 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDepartment`
+2025-06-18 05:25:10,850 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPacking Slip Item`
+2025-06-18 05:25:10,888 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset`
+2025-06-18 05:25:10,913 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Action Resolution`
+2025-06-18 05:25:10,937 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Update Log`
+2025-06-18 05:25:10,967 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Repair`
+2025-06-18 05:25:10,989 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPortal User`
+2025-06-18 05:25:11,023 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProject`
+2025-06-18 05:25:11,045 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabContract Template Fulfilment Terms`
+2025-06-18 05:25:11,069 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Stage`
+2025-06-18 05:25:11,125 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Invoice`
+2025-06-18 05:25:11,155 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPromotional Scheme Product Discount`
+2025-06-18 05:25:11,192 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustomer`
+2025-06-18 05:25:11,220 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubscription Plan`
+2025-06-18 05:25:11,248 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Rule`
+2025-06-18 05:25:11,271 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabHomepage Section Card`
+2025-06-18 05:25:11,293 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Statement Of Accounts Customer`
+2025-06-18 05:25:11,318 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUnreconcile Payment`
+2025-06-18 05:25:11,339 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Payment Method`
+2025-06-18 05:25:11,363 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Transaction Payments`
+2025-06-18 05:25:11,387 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Maintenance Team`
+2025-06-18 05:25:11,414 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Payment Reconciliation`
+2025-06-18 05:25:11,453 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabStock Entry Detail`
+2025-06-18 05:25:11,483 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJournal Entry Account`
+2025-06-18 05:25:11,505 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduct Bundle Item`
+2025-06-18 05:25:11,540 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Statement Of Accounts`
+2025-06-18 05:25:11,564 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Maintenance`
+2025-06-18 05:25:11,587 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Accounting Ledger`
+2025-06-18 05:25:11,618 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPromotional Scheme`
+2025-06-18 05:25:11,644 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLanded Cost Voucher`
+2025-06-18 05:25:11,669 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Category`
+2025-06-18 05:25:11,692 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCurrency Exchange`
+2025-06-18 05:25:11,718 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDriver`
+2025-06-18 05:25:11,739 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCampaign Item`
+2025-06-18 05:25:11,760 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJournal Entry Template Account`
+2025-06-18 05:25:11,788 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Sub Assembly Item`
+2025-06-18 05:25:11,812 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabActivity Type`
+2025-06-18 05:25:11,836 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card Operation`
+2025-06-18 05:25:11,861 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Explosion Item`
+2025-06-18 05:25:11,886 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAppointment`
+2025-06-18 05:25:11,909 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabUAE VAT Account`
+2025-06-18 05:25:11,933 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Sales Order`
+2025-06-18 05:25:11,957 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Feedback Template Parameter`
+2025-06-18 05:25:12,018 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Invoice`
+2025-06-18 05:25:12,042 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabExchange Rate Revaluation Account`
+2025-06-18 05:25:12,071 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSerial and Batch Entry`
+2025-06-18 05:25:12,089 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabVariant Field`
+2025-06-18 05:25:12,116 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProspect Lead`
+2025-06-18 05:25:12,138 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabService Day`
+2025-06-18 05:25:12,158 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTransaction Deletion Record Item`
+2025-06-18 05:25:12,182 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPricing Rule Detail`
+2025-06-18 05:25:12,205 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCustomer Group`
+2025-06-18 05:25:12,231 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee Group Table`
+2025-06-18 05:25:12,252 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTax Withholding Rate`
+2025-06-18 05:25:12,278 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccounting Period`
+2025-06-18 05:25:12,299 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabItem Reorder`
+2025-06-18 05:25:12,322 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Order Supplied Item`
+2025-06-18 05:25:12,346 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Closing Entry Detail`
+2025-06-18 05:25:12,373 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWorkstation`
+2025-06-18 05:25:12,424 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee`
+2025-06-18 05:25:12,448 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPayment Terms Template`
+2025-06-18 05:25:12,494 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Receipt Item`
+2025-06-18 05:25:12,525 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabLanded Cost Item`
+2025-06-18 05:25:12,549 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabInstallation Note`
+2025-06-18 05:25:12,584 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubscription`
+2025-06-18 05:25:12,606 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCampaign Email Schedule`
+2025-06-18 05:25:12,630 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Partner Item`
+2025-06-18 05:25:12,649 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Feedback Template`
+2025-06-18 05:25:12,678 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMaintenance Schedule`
+2025-06-18 05:25:12,701 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuotation Lost Reason Detail`
+2025-06-18 05:25:12,722 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabNon Conformance`
+2025-06-18 05:25:12,748 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabEmployee Education`
+2025-06-18 05:25:12,770 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTask Type`
+2025-06-18 05:25:12,799 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpportunity Item`
+2025-06-18 05:25:12,838 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDelivery Note Item`
+2025-06-18 05:25:12,867 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIncoming Call Settings`
+2025-06-18 05:25:12,888 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBank Account Type`
+2025-06-18 05:25:12,913 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Finance Book`
+2025-06-18 05:25:12,935 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabParty Account`
+2025-06-18 05:25:12,966 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTask`
+2025-06-18 05:25:12,991 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPurchase Taxes and Charges`
+2025-06-18 05:25:13,015 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAsset Maintenance Task`
+2025-06-18 05:25:13,042 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabParty Specific Item`
+2025-06-18 05:25:13,066 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShare Transfer`
+2025-06-18 05:25:13,100 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Inspection`
+2025-06-18 05:25:13,119 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProduction Plan Item Reference`
+2025-06-18 05:25:13,142 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIndustry Type`
+2025-06-18 05:25:13,169 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPick List Item`
+2025-06-18 05:25:13,193 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabJob Card Time Log`
+2025-06-18 05:25:13,216 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRouting`
+2025-06-18 05:25:13,238 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSub Operation`
+2025-06-18 05:25:13,266 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabMarket Segment`
+2025-06-18 05:25:13,287 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCost Center Allocation Percentage`
+2025-06-18 05:25:13,314 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWork Order Item`
+2025-06-18 05:25:13,334 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTelephony Call Type`
+2025-06-18 05:25:13,355 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabManufacturer`
+2025-06-18 05:25:13,383 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabApplicable On Account`
+2025-06-18 05:25:13,403 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabProcess Subscription`
+2025-06-18 05:25:13,435 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM Item`
+2025-06-18 05:25:13,462 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSupplier Group`
+2025-06-18 05:25:13,488 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipment Parcel Template`
+2025-06-18 05:25:13,519 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Closing Entry`
+2025-06-18 05:25:13,565 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Receipt`
+2025-06-18 05:25:13,587 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipping Rule Country`
+2025-06-18 05:25:13,630 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Profile`
+2025-06-18 05:25:13,653 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Procedure Process`
+2025-06-18 05:25:13,684 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSales Invoice Timesheet`
+2025-06-18 05:25:13,704 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabAccounting Dimension Detail`
+2025-06-18 05:25:13,730 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabQuality Meeting`
+2025-06-18 05:25:13,753 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabTerritory`
+2025-06-18 05:25:13,778 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabShipment Parcel`
+2025-06-18 05:25:13,801 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabIncoterm`
+2025-06-18 05:25:13,824 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDependent Task`
+2025-06-18 05:25:13,847 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPricing Rule Item Code`
+2025-06-18 05:25:13,869 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Field`
+2025-06-18 05:25:13,895 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabVoice Call Settings`
+2025-06-18 05:25:13,915 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWorkstation Working Hour`
+2025-06-18 05:25:13,935 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPause SLA On Status`
+2025-06-18 05:25:13,966 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabWarehouse`
+2025-06-18 05:25:13,993 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabDiscounted Invoice`
+2025-06-18 05:25:14,017 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabCurrency Exchange Settings Details`
+2025-06-18 05:25:14,050 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSubcontracting Order`
+2025-06-18 05:25:14,074 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabPOS Customer Group`
+2025-06-18 05:25:14,099 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Payment Ledger`
+2025-06-18 05:25:14,133 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabSerial No`
+2025-06-18 05:25:14,154 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBudget Account`
+2025-06-18 05:25:14,197 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBOM`
+2025-06-18 05:25:14,226 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabVehicle`
+2025-06-18 05:25:14,249 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabBulk Transaction Log`
+2025-06-18 05:25:14,269 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabOpportunity Lost Reason Detail`
+2025-06-18 05:25:14,292 WARNING database DDL Query made to DB:
+DROP TABLE IF EXISTS `tabRepost Allowed Types`
+2025-06-18 05:25:41,273 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2025-06-18 06:23:30,030 WARNING database DDL Query made to DB:
+create table `tabLead` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 06:43:01,945 WARNING database DDL Query made to DB:
+ALTER TABLE `tabLead` ADD COLUMN `autocomplete_kkyb` varchar(140)
+2025-06-18 06:54:56,777 WARNING database DDL Query made to DB:
+ALTER TABLE `tabLead` ADD COLUMN `data_mhtd` varchar(140)
+2025-06-18 06:56:05,955 WARNING database DDL Query made to DB:
+ALTER TABLE `tabLead` ADD COLUMN `customer_name` varchar(140), ADD COLUMN `customer_type` varchar(140), ADD COLUMN `phone` varchar(140), ADD COLUMN `email` varchar(140), ADD COLUMN `address` text, ADD COLUMN `gstin` varchar(140), ADD COLUMN `industry` varchar(140)
+2025-06-18 06:56:55,355 WARNING database DDL Query made to DB:
+RENAME TABLE `tabLead` TO `tabCustomer`
+2025-06-18 06:57:59,398 WARNING database DDL Query made to DB:
+create table `tabLead` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 06:58:42,852 WARNING database DDL Query made to DB:
+ALTER TABLE `tabLead` ADD COLUMN `lead` text
+2025-06-18 07:02:02,141 WARNING database DDL Query made to DB:
+create table `tabProduct` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2025-06-18 07:02:22,292 WARNING database DDL Query made to DB:
+ALTER TABLE `tabProduct` ADD COLUMN `autocomplete_uhvb` varchar(140)
+2025-06-18 07:02:56,090 WARNING database DDL Query made to DB:
+ALTER TABLE `tabProduct` ADD COLUMN `product_name` varchar(140), ADD COLUMN `category` varchar(140), ADD COLUMN `price` decimal(21,9) not null default 0, ADD COLUMN `description` text

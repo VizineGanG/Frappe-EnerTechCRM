@@ -1,0 +1,12 @@
+2025-06-18 05:15:56,618 INFO ipython === bench console session ===
+2025-06-18 05:15:56,618 INFO ipython frappe.db.set_value("User", "Guest", "enabled", 1)
+frappe.db.commit()
+exit()
+2025-06-18 05:15:56,618 INFO ipython === session end ===
+2025-06-18 08:56:56,079 INFO ipython === bench console session ===
+2025-06-18 08:56:56,082 INFO ipython doc = frappe.get_doc("Workspace", "EnerTech CRM")
+doc.for_user = None
+doc.public = 1
+doc.save()
+frappe.db.commit()
+2025-06-18 08:56:56,082 INFO ipython === session end ===
